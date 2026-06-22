@@ -111,16 +111,16 @@ tr:hover{background:rgba(90,100,255,.03)}
 <div class="dashboard">
 <div class="header glass fade-in">
 <h1>章昊超话数据看板</h1>
-<p class="subtitle">数据采集时间：2026-06-22 10:30 | 数据来源：微博超话</p>
+<p class="subtitle">数据采集时间：2026-06-22 18:49 | 数据来源：微博超话</p>
 <div class="artist-info">章昊 Zhang Hao | 2001.12.25 | 中国河南 | ZEROBASEONE | Boys Planet 第1名出道 | WAKEONE | 应援色：Blue Blaze | 粉丝名：昊月</div>
 </div>
 
 <!-- ===== 超话基础数据 ===== -->
 <div class="stats-row fade-in">
 <div class="stat-card glass"><div class="number">待填写</div><div class="label">超话阅读</div></div>
-<div class="stat-card glass"><div class="number">158万</div><div class="label">帖子总数</div></div>
-<div class="stat-card glass"><div class="number">63万</div><div class="label">昊月(粉丝)</div></div>
-<div class="stat-card glass"><div class="number">1.6万</div><div class="label">今日签到</div></div>
+<div class="stat-card glass"><div class="number"></div><div class="label">帖子总数</div></div>
+<div class="stat-card glass"><div class="number"></div><div class="label">昊月(粉丝)</div></div>
+<div class="stat-card glass"><div class="number"></div><div class="label">今日签到</div></div>
 <div class="stat-card glass"><div class="number">待填写</div><div class="label">超话等级</div></div>
 <div class="stat-card glass"><div class="number">ZB1</div><div class="label">所属团体</div></div>
 </div>
@@ -192,7 +192,11 @@ tr:hover{background:rgba(90,100,255,.03)}
 <script>
 // === 热帖数据（爬虫运行后会自动更新这里）===
 const posts=[
-// 格式: {author:"用户名",official:false,content:"帖子内容",reposts:0,comments:0,likes:0,time:"MM-DD",ts:YYYYMMDD}
+{author:"真的昊_新",official:false,content:"#章昊and2ble唯一主唱ace# 成功啦，这个是每个月自动扣费的吗，还是要自己设置一下才行",reposts:0,comments:0,likes:8,time:"5-27",ts:20260527.0},
+{author:"可以成为我的止痛剂吗",official:false,content:"有没有站子汇总呀",reposts:0,comments:0,likes:1,time:"6-20",ts:20260620.0},
+{author:"赫你一起等雨亭-",official:false,content:"祝我高考加油",reposts:0,comments:0,likes:22,time:"6-5",ts:20260605.0},
+{author:"昊想你_章h",official:false,content:"#章昊# 忽然翻到24年的照片，满满的回忆",reposts:0,comments:0,likes:3,time:"20小时前",ts:0},
+{author:"鳕鱼爱吃饭",official:false,content:"买到同款薯片 让我来品鉴一下",reposts:1,comments:10,likes:10,time:"6-18",ts:20260618.0}
 ];
 
 let currentSort='likes',sortDir='desc',filtered=[...posts];
@@ -204,7 +208,7 @@ function render(){const sorted=[...filtered].sort((a,b)=>{let va,vb;if(currentSo
 
 function renderCharts(){
 // Trend chart
-new Chart(document.getElementById('trendChart').getContext('2d'),{type:'line',data:{labels:["2026-06-19", "2026-06-22"],datasets:[{label:'超话粉丝(万)',data:[63.0, 63.0],borderColor:'#5a64ff',backgroundColor:'rgba(90,100,255,.1)',fill:true,tension:.4,pointRadius:6}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},title:{display:true,text:'超话粉丝数趋势(每日自动记录)',color:'#aaa'}},scales:{x:{ticks:{color:'#888'},grid:{color:'rgba(255,255,255,.05)'}},y:{ticks:{color:'#888'},grid:{color:'rgba(255,255,255,.05)'}}}}});
+new Chart(document.getElementById('trendChart').getContext('2d'),{type:'line',data:{labels:["2026-06-19", "2026-06-22", "2026-06-22", "2026-06-22", "2026-06-22", "2026-06-22"],datasets:[{label:'超话粉丝(万)',data:[63.0, 63.0, 63.0, 63.0, 63.0, 63.0],borderColor:'#5a64ff',backgroundColor:'rgba(90,100,255,.1)',fill:true,tension:.4,pointRadius:6}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},title:{display:true,text:'超话粉丝数趋势(每日自动记录)',color:'#aaa'}},scales:{x:{ticks:{color:'#888'},grid:{color:'rgba(255,255,255,.05)'}},y:{ticks:{color:'#888'},grid:{color:'rgba(255,255,255,.05)'}}}}});
 
 // Topic distribution
 const tLabels=['舞台表演','颜值美照','官方物料','饭制视频','行程活动','团体回归','日常分享','应援打投'];
@@ -212,10 +216,10 @@ const tData=[5,4,3,3,2,3,2,3];
 new Chart(document.getElementById('topicChart').getContext('2d'),{type:'doughnut',data:{labels:tLabels,datasets:[{data:tData,backgroundColor:['#5a64ff','#ff6b8a','#00b4ff','#a78bfa','#4ecdc4','#ffd200','#74b9ff','#fd79a8'],borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{color:'#aaa',font:{size:10}}}}}});
 
 // Engagement placeholder
-new Chart(document.getElementById('engagementChart').getContext('2d'),{type:'bar',data:{labels:['待数据'],datasets:[{label:'转发',data:[0],backgroundColor:'rgba(167,139,250,.7)'},{label:'评论',data:[0],backgroundColor:'rgba(78,205,196,.7)'},{label:'点赞',data:[0],backgroundColor:'rgba(255,107,138,.7)'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#aaa'}},title:{display:true,text:'热帖互动量TOP(爬虫运行后更新)',color:'#aaa'}},scales:{x:{ticks:{color:'#888'},grid:{color:'rgba(255,255,255,.05)'}},y:{ticks:{color:'#888'},grid:{color:'rgba(255,255,255,.05)'}}}}});
+new Chart(document.getElementById('engagementChart').getContext('2d'),{type:'bar',data:{labels:["赫你一起等雨", "鳕鱼爱吃饭", "真的昊_新", "昊想你_章h", "可以成为我的"],datasets:[{label:'转发',data:[0, 1, 0, 0, 0],backgroundColor:'rgba(167,139,250,.7)'},{label:'评论',data:[0, 10, 0, 0, 0],backgroundColor:'rgba(78,205,196,.7)'},{label:'点赞',data:[22, 10, 8, 3, 1],backgroundColor:'rgba(255,107,138,.7)'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#aaa'}},title:{display:true,text:'热帖互动量TOP8',color:'#aaa'}},scales:{x:{ticks:{color:'#888'},grid:{color:'rgba(255,255,255,.05)'}},y:{ticks:{color:'#888'},grid:{color:'rgba(255,255,255,.05)'}}}}});
 
 // Top posts chart placeholder
-new Chart(document.getElementById('topPostsChart').getContext('2d'),{type:'bar',data:{labels:['待数据'],datasets:[{label:'点赞数',data:[0],backgroundColor:['#5a64ff'],borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false},title:{display:true,text:'热帖点赞排行(爬虫运行后更新)',color:'#aaa'}},scales:{x:{ticks:{color:'#888'},grid:{color:'rgba(255,255,255,.05)'}},y:{ticks:{color:'#aaa'},grid:{display:false}}}}});
+new Chart(document.getElementById('topPostsChart').getContext('2d'),{type:'bar',data:{labels:["祝我高考加油", "买到同款薯片 让我来", "#章昊and2ble", "#章昊# 忽然翻到2", "有没有站子汇总呀"],datasets:[{label:'点赞数',data:[22, 10, 8, 3, 1],backgroundColor:['#5a64ff','#ff6b8a','#00b4ff','#a78bfa','#4ecdc4','#ffd200','#74b9ff','#fd79a8'],borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false},title:{display:true,text:'热帖点赞排行',color:'#aaa'}},scales:{x:{ticks:{color:'#888'},grid:{color:'rgba(255,255,255,.05)'}},y:{ticks:{color:'#aaa',font:{size:9}},grid:{display:false}}}}});
 }
 render();renderCharts();
 
