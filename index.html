@@ -111,16 +111,16 @@ tr:hover{background:rgba(90,100,255,.03)}
 <div class="dashboard">
 <div class="header glass fade-in">
 <h1>章昊超话数据看板</h1>
-<p class="subtitle">数据采集时间：待更新 | 数据来源：微博超话</p>
+<p class="subtitle">数据采集时间：2026-06-22 10:30 | 数据来源：微博超话</p>
 <div class="artist-info">章昊 Zhang Hao | 2001.12.25 | 中国河南 | ZEROBASEONE | Boys Planet 第1名出道 | WAKEONE | 应援色：Blue Blaze | 粉丝名：昊月</div>
 </div>
 
 <!-- ===== 超话基础数据 ===== -->
 <div class="stats-row fade-in">
 <div class="stat-card glass"><div class="number">待填写</div><div class="label">超话阅读</div></div>
-<div class="stat-card glass"><div class="number">待填写</div><div class="label">帖子总数</div></div>
-<div class="stat-card glass"><div class="number">待填写</div><div class="label">昊月(粉丝)</div></div>
-<div class="stat-card glass"><div class="number">待填写</div><div class="label">今日签到</div></div>
+<div class="stat-card glass"><div class="number">158万</div><div class="label">帖子总数</div></div>
+<div class="stat-card glass"><div class="number">63万</div><div class="label">昊月(粉丝)</div></div>
+<div class="stat-card glass"><div class="number">1.6万</div><div class="label">今日签到</div></div>
 <div class="stat-card glass"><div class="number">待填写</div><div class="label">超话等级</div></div>
 <div class="stat-card glass"><div class="number">ZB1</div><div class="label">所属团体</div></div>
 </div>
@@ -204,7 +204,7 @@ function render(){const sorted=[...filtered].sort((a,b)=>{let va,vb;if(currentSo
 
 function renderCharts(){
 // Trend chart
-new Chart(document.getElementById('trendChart').getContext('2d'),{type:'line',data:{labels:['待数据积累'],datasets:[{label:'超话粉丝',data:[0],borderColor:'#5a64ff',backgroundColor:'rgba(90,100,255,.1)',fill:true,tension:.4,pointRadius:6}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},title:{display:true,text:'超话粉丝数趋势(每日自动记录)',color:'#aaa'}},scales:{x:{ticks:{color:'#888'},grid:{color:'rgba(255,255,255,.05)'}},y:{ticks:{color:'#888'},grid:{color:'rgba(255,255,255,.05)'}}}}});
+new Chart(document.getElementById('trendChart').getContext('2d'),{type:'line',data:{labels:["2026-06-19", "2026-06-22"],datasets:[{label:'超话粉丝(万)',data:[63.0, 63.0],borderColor:'#5a64ff',backgroundColor:'rgba(90,100,255,.1)',fill:true,tension:.4,pointRadius:6}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},title:{display:true,text:'超话粉丝数趋势(每日自动记录)',color:'#aaa'}},scales:{x:{ticks:{color:'#888'},grid:{color:'rgba(255,255,255,.05)'}},y:{ticks:{color:'#888'},grid:{color:'rgba(255,255,255,.05)'}}}}});
 
 // Topic distribution
 const tLabels=['舞台表演','颜值美照','官方物料','饭制视频','行程活动','团体回归','日常分享','应援打投'];
